@@ -2,6 +2,28 @@
 // This file is owned by you, feel free to edit as you see fit.
 import * as React from "react";
 import { PlasmicHome } from "./plasmic/canvas_app_explorer/PlasmicHome";
+import * as p from "@plasmicapp/react-web";
+import {
+  classNames,
+  createPlasmicElementProxy,
+  deriveRenderOpts,
+  ensureGlobalVariants
+} from "@plasmicapp/react-web";
+import Header from "./Header"; // plasmic-import: rgvwcoUrD14Pp/component
+import ProductCard from "./ProductCard"; // plasmic-import: zc_-JZqmkLhAk/component
+import Ratings from "./Ratings"; // plasmic-import: kZJnDl5cN7jJ7/component
+import AddRemoveButton from "./AddRemoveButton"; // plasmic-import: JyIyDBiGW-/component
+import Screenshot from "./Screenshot"; // plasmic-import: fUpKi24Qhx/component
+import Footer from "./Footer"; // plasmic-import: SxuS7aSzfTV9l/component
+import { useScreenVariants } from "./plasmic/canvas_app_explorer/PlasmicGlobalVariant__Screen"; // plasmic-import: thj0p9NXEH81i/globalVariant
+import "@plasmicapp/react-web/lib/plasmic.css";
+import "./plasmic/plasmic__default_style.css"; // plasmic-import: global/defaultcss
+import "./plasmic/canvas_app_explorer/plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
+import "./plasmic/canvas_app_explorer/PlasmicHome.css"; // plasmic-import: 4XPgsAhljqdds/css
+
+export const PlasmicHome__VariantProps = new Array();
+
+export const PlasmicHome__ArgProps = new Array();
 
 function Home_(props, ref) {
   // Use PlasmicHome to render this component as it was
@@ -18,9 +40,219 @@ function Home_(props, ref) {
   //
   // By default, we are just piping all HomeProps here, but feel free
   // to do whatever works for you.
-  return <PlasmicHome root={{ ref }} {...props} />;
+
+ const { variants, args, forNode, dataFetches } = props;
+ const globalVariants = ensureGlobalVariants({
+   screen: useScreenVariants()
+ });
+
+ return (
+    <React.Fragment>
+      <div className={"plasmic_page_wrapper"}>
+        <div
+          data-plasmic-name={"root"}
+          data-plasmic-root={true}
+          data-plasmic-for-node={forNode}
+          className={classNames(
+            "plasmic_default__all",
+            "plasmic_default__div",
+            "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
+            "Home__root__rfWi8"
+          )}
+        >
+          {false ? (
+            <input
+              className={classNames(
+                "plasmic_default__all",
+                "plasmic_default__input",
+                "Home__textbox__kcHjj"
+              )}
+              placeholder={"Some placeholder"}
+              size={1}
+              type={"text"}
+              value={"Some value"}
+            />
+          ) : null}
+
+          <div
+            className={classNames(
+              "plasmic_default__all",
+              "plasmic_default__div",
+              "Home__box___8LuQk"
+            )}
+          >
+            <Header
+              data-plasmic-name={"header"}
+              className={classNames("__wab_instance", "Home__header__iXzGr")}
+              withSearchBar={"withSearchBar"}
+            />
+
+            {false ? (
+              <input
+                className={classNames(
+                  "plasmic_default__all",
+                  "plasmic_default__input",
+                  "Home__textbox__y0QeV"
+                )}
+                placeholder={"Some placeholder"}
+                size={1}
+                type={"text"}
+                value={"Some value"}
+              />
+            ) : null}
+
+            <div
+              className={classNames(
+                "plasmic_default__all",
+                "plasmic_default__div",
+                "Home__box__d20ZQ"
+              )}
+            >
+              <div
+                className={classNames(
+                  "plasmic_default__all",
+                  "plasmic_default__div",
+                  "__wab_text",
+                  "Home__box__k3LxN"
+                )}
+              >
+                {
+                  "LTI Organizer is a collection of resources to assist the instructor in using the best tools available for you and your students. "
+                }
+              </div>
+            </div>
+
+            <p.Stack
+              as={"div"}
+              hasGap={true}
+              className={classNames(
+                "plasmic_default__all",
+                "plasmic_default__div",
+                "Home__box___92DMt"
+              )}
+            >
+              <ProductCard
+                className={classNames(
+                  "__wab_instance",
+                  "Home__productCard__foQyr"
+                )}
+                description={
+                  <div
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__div",
+                      "__wab_text",
+                      "Home__box__c1Y5M"
+                    )}
+                  >
+                    {"Provides access to the Zoom video conference platform."}
+                  </div>
+                }
+                image={
+                  <img
+                    alt={""}
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__img",
+                      "Home__img__zw5Ho"
+                    )}
+                    role={"img"}
+                    src={
+                      "/static/plasmic/canvas_app_explorer/images/zoomMeetingpng.png"
+                    }
+                  />
+                }
+                logo={
+                  <img
+                    alt={""}
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__img",
+                      "Home__img__zZtPf"
+                    )}
+                    role={"img"}
+                    src={
+                      "/static/plasmic/canvas_app_explorer/images/zoomLogo.png"
+                    }
+                  />
+                }
+                ratings={
+                  <Ratings
+                    className={classNames(
+                      "__wab_instance",
+                      "Home__ratings__yXulX"
+                    )}
+                    numReviews={"(45 Review)"}
+                    stars={"four"}
+                  />
+                }
+                title={"Zoom"}
+                withReviews={"withReviews"}
+              >
+                <AddRemoveButton
+                  className={classNames(
+                    "__wab_instance",
+                    "Home__addRemoveButton___3D93M"
+                  )}
+                />
+              </ProductCard>
+
+            </p.Stack>
+
+            <PlasmicHome.footer variants={variants} />
+          </div>
+
+          {false ? (
+            <input
+              className={classNames(
+                "plasmic_default__all",
+                "plasmic_default__input",
+                "Home__textbox__triAl"
+              )}
+              placeholder={"Some placeholder"}
+              size={1}
+              type={"text"}
+              value={"Some value"}
+            />
+          ) : null}
+        </div>
+      </div>
+    </React.Fragment>
+  );
 }
 
 const Home = React.forwardRef(Home_);
+
+const PlasmicDescendants = {
+  root: ["root", "header", "screenshot", "footer"],
+  header: ["header"],
+  screenshot: ["screenshot"],
+  footer: ["footer"]
+};
+
+function makeNodeComponent(nodeName) {
+  const func = function (props) {
+    const { variants, args } = deriveRenderOpts(props, {
+      name: nodeName,
+      descendantNames: [...PlasmicDescendants[nodeName]],
+      internalArgPropNames: PlasmicHome__ArgProps,
+      internalVariantPropNames: PlasmicHome__VariantProps
+    });
+
+    const { dataFetches } = props;
+    return PlasmicHome__RenderFunc({
+      variants,
+      args,
+      dataFetches,
+      forNode: nodeName
+    });
+  };
+  if (nodeName === "root") {
+    func.displayName = "PlasmicHome";
+  } else {
+    func.displayName = `PlasmicHome.${nodeName}`;
+  }
+  return func;
+}
 
 export default Home;
