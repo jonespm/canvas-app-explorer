@@ -37,7 +37,6 @@ function Home__RenderFunc(props,ref) {
         const response = await fetch(url);
         const data = await response.json();
         setTools(data)
-        setAddedTools(Array(Object.keys(data).length + 2).fill(false))
     }, []);
 
 	const { variants, args, overrides, forNode, dataFetches } = props;
@@ -146,7 +145,7 @@ function Home__RenderFunc(props,ref) {
                                     data-plasmic-override={overrides.zoomCard}
                                     addRemoveSlot={(
                                         <div>
-                                            {addedTools[tool.id] === false ?  
+                                            {addedTools[tool.id] === undefined || addedTools[tool.id] === false ?  
                                                 <AddRemoveButton
                                                     onClick={(e) => {
                                                         e.preventDefault(); 
