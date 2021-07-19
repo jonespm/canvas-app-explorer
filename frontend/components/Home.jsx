@@ -37,7 +37,8 @@ function Home__RenderFunc(props,ref) {
         const response = await fetch(url);
         const data = await response.json();
         setTools(data)
-        setAddedTools(Array(Object.keys(data).length).fill(false))
+        setAddedTools(Array(Object.keys(data).length + 1).fill(false))
+        console.log(addedTools)
     }, []);
 
 	const { variants, args, overrides, forNode, dataFetches } = props;
@@ -148,9 +149,11 @@ function Home__RenderFunc(props,ref) {
                                         <div>
                                             {addedTools[tool.id - 1] === false ?  
                                                 <AddRemoveButton
-                                                    onClick={() => {
-                                                        addedTools[tool.id - 1] = !addedTools[tool.id - 1]
-                                                        setAddedTools(addedTools)
+                                                    onClick={(e) => {
+                                                        e.preventDefault(); 
+                                                        let addedToolsCopy = [...addedTools]
+                                                        addedToolsCopy[tool.id - 1] = !addedToolsCopy[tool.id - 1]
+                                                        setAddedTools(addedToolsCopy)
                                                     }}
                                                     className={classNames(
                                                         "__wab_instance",
@@ -159,9 +162,11 @@ function Home__RenderFunc(props,ref) {
                                                 />
                                             :
                                                 <AddRemoveButton
-                                                    onClick={() => {
-                                                        addedTools[tool.id - 1] = !addedTools[tool.id - 1]
-                                                        setAddedTools(addedTools)
+                                                    onClick={(e) => {
+                                                        e.preventDefault(); 
+                                                        let addedToolsCopy = [...addedTools]
+                                                        addedToolsCopy[tool.id - 1] = !addedToolsCopy[tool.id - 1]
+                                                        setAddedTools(addedToolsCopy)
                                                     }}
                                                     className={classNames(
                                                         "__wab_instance",
@@ -201,7 +206,7 @@ function Home__RenderFunc(props,ref) {
                                             }
                                         </div>
                                     }
-                                    learnMore={"learnMore"}
+                                    // learnMore={"learnMore"}
                                     // learnMore={"learnMore"} // if this line is uncommented, the card will be flipped
                                     className={classNames(
                                         "__wab_instance",	
