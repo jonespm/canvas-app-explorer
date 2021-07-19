@@ -37,8 +37,7 @@ function Home__RenderFunc(props,ref) {
         const response = await fetch(url);
         const data = await response.json();
         setTools(data)
-        setAddedTools(Array(Object.keys(data).length + 1).fill(false))
-        console.log(addedTools)
+        setAddedTools(Array(Object.keys(data).length + 2).fill(false))
     }, []);
 
 	const { variants, args, overrides, forNode, dataFetches } = props;
@@ -147,12 +146,12 @@ function Home__RenderFunc(props,ref) {
                                     data-plasmic-override={overrides.zoomCard}
                                     addRemoveSlot={(
                                         <div>
-                                            {addedTools[tool.id - 1] === false ?  
+                                            {addedTools[tool.id] === false ?  
                                                 <AddRemoveButton
                                                     onClick={(e) => {
                                                         e.preventDefault(); 
                                                         let addedToolsCopy = [...addedTools]
-                                                        addedToolsCopy[tool.id - 1] = !addedToolsCopy[tool.id - 1]
+                                                        addedToolsCopy[tool.id] = !addedToolsCopy[tool.id]
                                                         setAddedTools(addedToolsCopy)
                                                     }}
                                                     className={classNames(
@@ -165,7 +164,7 @@ function Home__RenderFunc(props,ref) {
                                                     onClick={(e) => {
                                                         e.preventDefault(); 
                                                         let addedToolsCopy = [...addedTools]
-                                                        addedToolsCopy[tool.id - 1] = !addedToolsCopy[tool.id - 1]
+                                                        addedToolsCopy[tool.id] = !addedToolsCopy[tool.id]
                                                         setAddedTools(addedToolsCopy)
                                                     }}
                                                     className={classNames(
